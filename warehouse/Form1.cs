@@ -23,5 +23,11 @@ namespace warehouse
             QRwindow.Show();
     
         }
+
+        private void megbt_Click(object sender, EventArgs e)
+        {
+            Form3 MGwindow = new Form3();
+            MGwindow.Show();
+        }
     }
 }

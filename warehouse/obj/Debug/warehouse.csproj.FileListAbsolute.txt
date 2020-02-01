@@ -1,4 +1,3 @@
-F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.csprojAssemblyReference.cache
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.Form1.resources
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.Properties.Resources.resources
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.csproj.GenerateResource.cache
@@ -12,3 +11,4 @@ F:\code\c#\warehouse\warehouse\bin\Debug\QRCoder.dll
 F:\code\c#\warehouse\warehouse\bin\Debug\System.Drawing.Common.dll
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.csproj.CopyComplete
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.Form2.resources
+F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.Form3.resources

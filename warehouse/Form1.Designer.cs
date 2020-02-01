@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.buildQR = new System.Windows.Forms.Button();
+            this.megbt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buildQR
@@ -41,11 +42,22 @@
             this.buildQR.UseVisualStyleBackColor = true;
             this.buildQR.Click += new System.EventHandler(this.buildQR_Click);
             // 
+            // megbt
+            // 
+            this.megbt.Location = new System.Drawing.Point(117, 161);
+            this.megbt.Name = "megbt";
+            this.megbt.Size = new System.Drawing.Size(155, 61);
+            this.megbt.TabIndex = 1;
+            this.megbt.Text = "信息导入";
+            this.megbt.UseVisualStyleBackColor = true;
+            this.megbt.Click += new System.EventHandler(this.megbt_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 601);
+            this.Controls.Add(this.megbt);
             this.Controls.Add(this.buildQR);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button buildQR;
+        private System.Windows.Forms.Button megbt;
     }
 }
 

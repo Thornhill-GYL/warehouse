@@ -33,7 +33,7 @@ namespace warehouse
 
             bool b_we = w_line_y.Checked ? true : false;
 
-            Bitmap bmp = encoder.code(str_msg, version, pixel, "C:/Users/lenovo/Pictures/Saved Pictures/Pinterest/test.JPG", int_icon_size, int_icon_border, b_we);
+            Bitmap bmp = encoder.code(str_msg, version, pixel, "E:/lenovo/Pictures/soul-friend/li.JPG", int_icon_size, int_icon_border, b_we);
 
             QRpic.Image = bmp;
         }
