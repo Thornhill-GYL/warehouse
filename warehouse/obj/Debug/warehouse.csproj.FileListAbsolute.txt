@@ -12,3 +12,4 @@ F:\code\c#\warehouse\warehouse\bin\Debug\System.Drawing.Common.dll
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.csproj.CopyComplete
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.Form2.resources
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.Form3.resources
+F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.csprojAssemblyReference.cache
