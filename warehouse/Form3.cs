@@ -14,7 +14,9 @@ namespace warehouse
     public partial class Form3 : Form
     {
         DataTable dt = new DataTable();
+        int count_name;//该变量用于序号计算选中的名称的数量。
         private List<string> listCombobox = new List<string>();
+        
         public Form3()
         {
             InitializeComponent();
@@ -25,6 +27,11 @@ namespace warehouse
 
         private void Form3_Load(object sender, EventArgs e)
         {
+
+            /*
+             * 获取当前年月，并将其格式定位YYMM
+             */
+            timelabel.Text = DateTime.Now.ToString("yyMMdd");
             /*先连接excel表格获取内容
              * dt是全局定义的datatable表格，用于存储表格
              * dgtest是datagridview用来显示获取的表格信息
@@ -73,13 +80,102 @@ namespace warehouse
             this.cbname.Items.AddRange(listCombobox.ToArray());
     
             this.cbname.AutoCompleteSource = AutoCompleteSource.ListItems;
-           
+
+            
         }
 
         private void cbname_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
+        /*
+         * 用于更新序号的查询函数
+         */
+         public void countnumber(string cbtext)
+        {
+            /*
+             * conn:用于连接EXCEL表格
+             * cmd：用于作为sql的查询条件
+             * CommandText:用于sql语句查询
+             * @name:作为参数查询的参数入口
+             */
+            OleDbConnection conn = new OleDbConnection("Provider=Microsoft.Ace.OLEDB.12.0;Data Source=F:/competition/smart car/other/C#出入库管理软件/零部件命名规则.xlsx;Extended Properties=Excel 8.0;");
+            string CommandText = "select count(*) from [Sheet1$] where 名称=@name";
+            OleDbParameter parameters = new OleDbParameter("@name", cbtext);
+            OleDbCommand cmd = new OleDbCommand(CommandText, conn);
+            cmd.Parameters.Add(parameters);
+            conn.Open();
+            count_name = Convert.ToInt32(cmd.ExecuteScalar());
+            nporder.Value = count_name+1;
+        }
+        /*
+         * 用于获取单位的查询函数
+         */
+         public string Getsearch(string name,string cbtext)
+        {
+           
+            string unit = "null";
 
+            string CommandText = "null";
+            OleDbConnection conn = new OleDbConnection("Provider=Microsoft.Ace.OLEDB.12.0;Data Source=F:/competition/smart car/other/C#出入库管理软件/零部件命名规则.xlsx;Extended Properties=Excel 8.0;");
+            if (name == "unit")
+                CommandText = "select 单位 from [Sheet1$] where 名称=@name";
+            else if(name == "standard")
+                CommandText = "select 规格 from [Sheet1$] where 名称=@name";
+            OleDbParameter parameters = new OleDbParameter("@name", cbtext);
+            OleDbCommand cmd = new OleDbCommand(CommandText, conn);
+            cmd.Parameters.Add(parameters);
+            conn.Open();
+            OleDbDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                unit = dr[0].ToString();
+            }
+            
+            conn.Close();
+            return unit;
+        }
+        /*
+         * 用于获取拟生成序号的查询函数
+         * cbtext:入库产品的名称；
+         * ordernum:入库铲平的序号；
+         * datatime:入库传品的时间；
+         * first..third:最终生成序号（除去时间）的组成部分
+         */
+        public string Producenumber(string cbtext,decimal ordernum,string datatime)
+        {
+            string first = "null";
+            string second = "null";
+            string third = "null ";
+            string resultnumber = "null";
+            string CommandText_first = "null";
+            string ComandText_second = "null";
+            OleDbConnection conn = new OleDbConnection("Provider=Microsoft.Ace.OLEDB.12.0;Data Source=F:/competition/smart car/other/C#出入库管理软件/零部件命名规则.xlsx;Extended Properties=Excel 8.0;");
+            CommandText_first = "select [首位（2位)] from [Sheet1$] where 名称=@name";
+            ComandText_second = "select [次位（3位)] from [Sheet1$] where 名称=@name";
+            OleDbParameter parameters = new OleDbParameter("@name", cbtext);
+            OleDbParameter parameterssecond = new OleDbParameter("@name", cbtext);
+            OleDbCommand cmd = new OleDbCommand(CommandText_first, conn);
+            OleDbCommand cmdsecond = new OleDbCommand(ComandText_second, conn);
+            cmd.Parameters.Add(parameters);
+            cmdsecond.Parameters.Add(parameterssecond);
+            conn.Open();
+            OleDbDataReader dr = cmd.ExecuteReader();
+            OleDbDataReader drsecond = cmdsecond.ExecuteReader();
+            if (dr.Read())
+            {
+                first = dr[0].ToString();
+            }
+            if(drsecond.Read())
+            {
+                second = drsecond[0].ToString();
+            }
+            conn.Close();
+            first = first.PadLeft(2, '0');
+            second = second.PadLeft(3, '0');
+            third = ordernum.ToString().PadLeft(5, '0');
+            resultnumber = first + second + datatime+ third;
+            return resultnumber;
+        }
         private void cbname_TextUpdate(object sender, EventArgs e)
         {
            /*
@@ -96,7 +192,20 @@ namespace warehouse
             cbname.SelectionStart = cbname.Text.Length;
             Cursor = Cursors.Default;
             cbname.DroppedDown = true;
+            
 
+        }
+        private void btnext_Click(object sender, EventArgs e)
+        {
+            nporder.Value += 1;//执行序号+1的操作
+        }
+
+        private void instore_Click(object sender, EventArgs e)
+        {
+            countnumber(cbname.Text);//用于更新序号的查询函数
+            unit.Text = Getsearch("unit",cbname.Text);//用于获取单位的查询函数
+            tbstandard.Text = Getsearch("standard", cbname.Text);//用于获取物品规格的函数
+            numberlb.Text = Producenumber(cbname.Text, nporder.Value,timelabel.Text);//用于生成序号序列
         }
     }
 }
