@@ -11,13 +11,14 @@ using System.Data.OleDb;
 
 namespace warehouse
 {
-    public partial class Form3 : Form
+    
+    public partial class InputMG : Form
     {
         DataTable dt = new DataTable();
         int count_name;//该变量用于序号计算选中的名称的数量。
         private List<string> listCombobox = new List<string>();
         
-        public Form3()
+        public InputMG()
         {
             InitializeComponent();
             
@@ -202,10 +203,41 @@ namespace warehouse
 
         private void instore_Click(object sender, EventArgs e)
         {
-            countnumber(cbname.Text);//用于更新序号的查询函数
-            unit.Text = Getsearch("unit",cbname.Text);//用于获取单位的查询函数
-            tbstandard.Text = Getsearch("standard", cbname.Text);//用于获取物品规格的函数
-            numberlb.Text = Producenumber(cbname.Text, nporder.Value,timelabel.Text);//用于生成序号序列
+            if(cbname.Text!=null)
+            {
+                countnumber(cbname.Text);//用于更新序号的查询函数
+                unit.Text = Getsearch("unit", cbname.Text);//用于获取单位的查询函数
+                tbstandard.Text = Getsearch("standard", cbname.Text);//用于获取物品规格的函数
+                numberlb.Text = Producenumber(cbname.Text, nporder.Value, timelabel.Text);//用于生成序号序列
+            }
+            else
+            {
+                MessageBox.Show("未选择产品!!!");
+            }
+            
+        }
+
+        private void btcode_Click(object sender, EventArgs e)
+        {
+            if(cbname.Text!=null)
+            {
+                Instoremg.name = cbname.Text;
+                Instoremg.number = numberlb.Text;
+                Instoremg.standard = tbstandard.Text;
+                Instoremg.moremg = morerich.Text;
+                ConfirmEQ ConfirmForm = new ConfirmEQ();
+                ConfirmForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("未选择产品！");
+            }
+
+        }
+
+        private void nporder_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

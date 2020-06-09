@@ -1,6 +1,6 @@
 ﻿namespace warehouse
 {
-    partial class Form3
+    partial class InputMG
     {
         /// <summary>
         /// Required designer variable.
@@ -46,7 +46,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tbstandard = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.morerich = new System.Windows.Forms.RichTextBox();
             this.btcode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgtest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nporder)).BeginInit();
@@ -87,6 +87,7 @@
             this.nporder.Name = "nporder";
             this.nporder.Size = new System.Drawing.Size(120, 25);
             this.nporder.TabIndex = 4;
+            this.nporder.ValueChanged += new System.EventHandler(this.nporder_ValueChanged);
             // 
             // label2
             // 
@@ -214,13 +215,13 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "备注";
             // 
-            // richTextBox1
+            // morerich
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(152, 142);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(228, 46);
-            this.richTextBox1.TabIndex = 19;
-            this.richTextBox1.Text = "";
+            this.morerich.Location = new System.Drawing.Point(152, 142);
+            this.morerich.Name = "morerich";
+            this.morerich.Size = new System.Drawing.Size(228, 46);
+            this.morerich.TabIndex = 19;
+            this.morerich.Text = "";
             // 
             // btcode
             // 
@@ -230,14 +231,15 @@
             this.btcode.TabIndex = 20;
             this.btcode.Text = "打印二维码标签";
             this.btcode.UseVisualStyleBackColor = true;
+            this.btcode.Click += new System.EventHandler(this.btcode_Click);
             // 
-            // Form3
+            // InputMG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btcode);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.morerich);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbstandard);
             this.Controls.Add(this.label7);
@@ -256,7 +258,7 @@
             this.Controls.Add(this.dgtest);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbname);
-            this.Name = "Form3";
+            this.Name = "InputMG";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgtest)).EndInit();
@@ -286,7 +288,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbstandard;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox morerich;
         private System.Windows.Forms.Button btcode;
     }
 }

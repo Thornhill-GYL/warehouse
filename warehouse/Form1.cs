@@ -26,8 +26,20 @@ namespace warehouse
 
         private void megbt_Click(object sender, EventArgs e)
         {
-            Form3 MGwindow = new Form3();
+            InputMG MGwindow = new InputMG();
             MGwindow.Show();
+        }
+
+        private void sysbt_Click(object sender, EventArgs e)
+        {
+            Setsystem configwindow = new Setsystem();
+            configwindow.Show();
+        }
+
+        private void storebt_Click(object sender, EventArgs e)
+        {
+            donestore instorewindow = new donestore();
+            instorewindow.Show();
         }
     }
 }

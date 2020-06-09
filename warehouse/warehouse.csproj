@@ -41,6 +41,12 @@
     <Reference Include="System.Drawing.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.4.5.0\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,9 +56,22 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net461\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net461\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="encoder.cs" />
+    <Compile Include="donestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="donestore.Designer.cs">
+      <DependentUpon>donestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EQcoder.cs" />
+    <Compile Include="filestring.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,22 +84,51 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="InputMG.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="InputMG.Designer.cs">
+      <DependentUpon>InputMG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmEQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmEQ.Designer.cs">
+      <DependentUpon>ConfirmEQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instoremg.cs" />
+    <Compile Include="personEQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="personEQ.Designer.cs">
+      <DependentUpon>personEQ.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="securitycode.cs" />
+    <Compile Include="Setsystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setsystem.Designer.cs">
+      <DependentUpon>Setsystem.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="donestore.resx">
+      <DependentUpon>donestore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="InputMG.resx">
+      <DependentUpon>InputMG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmEQ.resx">
+      <DependentUpon>ConfirmEQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="personEQ.resx">
+      <DependentUpon>personEQ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -91,6 +139,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Setsystem.resx">
+      <DependentUpon>Setsystem.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
