@@ -47,5 +47,15 @@ namespace warehouse
             tempmsg.Text = EQcoder.readEQ(filename);
 
         }
+
+        private void btperson_Click(object sender, EventArgs e)
+        {
+            string filename = "F:/person_info.png";
+            string personinfo = EQcoder.readEQ(filename);
+            string secrectname = getmsg("姓名:", personinfo);
+            inperson.Text = getmsg("姓名:",personinfo);
+            securitycode privacy = new securitycode();
+            truename.Text = privacy.Decrypt(secrectname);
+        }
     }
 }

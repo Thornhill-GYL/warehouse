@@ -19,9 +19,14 @@ namespace warehouse
 
         private void personEQ_Load(object sender, EventArgs e)
         {
-            string info = personinfo.name + personinfo.position + personinfo.apartment
-                + personinfo.A_authority + personinfo.B_authority + personinfo.C_authority
-                + personinfo.D_authority + personinfo.E_authority;
+            string info = "姓名:" + personinfo.name + "\n"
+                + "职位:" + personinfo.position + "\n"
+                + "部门:" + personinfo.apartment + "\n"
+                + "权限A:" + personinfo.A_authority + "\n"
+                + "权限B:" + personinfo.B_authority + "\n"
+                + "权限C:" + personinfo.C_authority + "\n"
+                + "权限D:" + personinfo.D_authority + "\n"
+                + "权限E:" + personinfo.E_authority + "\n";
             string filename = "F:/person_info.png";
             //生成二维码的函数
             imgeq.ImageLocation = EQcoder.generate(filename, 300, 300, info);

@@ -216,16 +216,17 @@ namespace warehouse
             personinfo.C_authority = privacy.Encrypt(C_authority);
             personinfo.D_authority = privacy.Encrypt(D_authority);
             personinfo.E_authority = privacy.Encrypt(E_authority);
-            //string back = privacy.Decrypt(personinfo.name);
+            //string newline = "-1";
+            //string back = privacy.Decrypt(newline);
             //tbtest.Text = personinfo.name;
             //tbback.Text = back;
             /*
              * 由于在数据库查询时，已经做过出错处理
              * 生成打印二维码的窗口
              */
-     
-              personEQ personEQFrom = new personEQ();
-              personEQFrom.Show();
+
+            personEQ personEQFrom = new personEQ();
+            personEQFrom.Show();
         
            
 
