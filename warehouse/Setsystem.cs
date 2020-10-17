@@ -33,7 +33,7 @@ namespace warehouse
                 filename = openFileDialog1.FileName;
                
                 filestring.itemfile_string = filename;
-               
+                tbproduct.Text = filestring.itemfile_string;
                 
             }
         }
@@ -47,9 +47,8 @@ namespace warehouse
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 filename = openFileDialog1.FileName;
-                tbtest.Text = filename;
                 filestring.storefile_string = filename;
-
+                tbstoreloc.Text = filestring.storefile_string;
 
             }
         }
@@ -65,7 +64,7 @@ namespace warehouse
                 filename = openFileDialog1.FileName;
                 tbtest.Text = filename;
                 filestring.personfile_string = filename;
-
+                tbpersonloc.Text = filestring.personfile_string;
 
             }
         }

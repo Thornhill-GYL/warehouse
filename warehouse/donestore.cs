@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
+using System.IO;
+using System.Data;
 
 namespace warehouse
 {
@@ -44,7 +47,7 @@ namespace warehouse
             tbnumber.Text = getmsg(lbnumber.Text, EQinfo);
             tbscale.Text = getmsg(lbscale.Text, EQinfo);
             rbmsg.Text = getmsg(lbmsg.Text, EQinfo);
-            tempmsg.Text = EQcoder.readEQ(filename);
+            
 
         }
 
@@ -53,9 +56,147 @@ namespace warehouse
             string filename = "F:/person_info.png";
             string personinfo = EQcoder.readEQ(filename);
             string secrectname = getmsg("姓名:", personinfo);
-            inperson.Text = getmsg("姓名:",personinfo);
             securitycode privacy = new securitycode();
             truename.Text = privacy.Decrypt(secrectname);
+        }
+        List<string> listCombobox = new List<string>();
+        private void donestore_Load(object sender, EventArgs e)
+        {
+
+            lbtime.Text = DateTime.Now.ToString("d");
+            /*先连接excel表格获取内容
+             * dt是全局定义的datatable表格，用于存储表格
+             * dgtest是datagridview用来显示获取的表格信息
+             */
+
+            /*
+             * 若开始未进行仓库位置更新，则使用默认的位置
+             */
+            string data_source = "";
+            string file_storeloc = " ";
+            file_storeloc = filestring.storefile_string+";";
+            if (file_storeloc == ";")
+            {
+                MessageBox.Show("仓库位置信息未更新，使用默认信息");
+                data_source = "F:/competition/smart car/other/C#出入库管理软件/仓库位置.xlsx;";
+            }
+            else
+                data_source = file_storeloc;
+            testtb.Text = data_source;//显示现在读取存储位置的仓库信息
+            //string data_source = "F:/competition/smart car/other/C#出入库管理软件/仓库位置.xlsx;";
+            connectsql donecn = new connectsql();
+            DataTable dt = donecn.connectxls(data_source);
+
+            /*
+            * **功能：将表格中的“名称”绑定到combobox中
+            * listcombobox:全局定义的变量，用于作为item的中间变量
+            * list:局部定义变量，用于将表格中的“名称”提取出来
+            */
+            List<string> list = dt.AsEnumerable().Select(c => c.Field<string>("新物品仓库")).ToList();
+           
+            foreach (string unitname in list)
+            {
+                if (unitname != null)
+                    listCombobox.Add(unitname);
+
+            }
+            this.cbloc.Items.AddRange(listCombobox.ToArray());
+
+            this.cbloc.AutoCompleteSource = AutoCompleteSource.ListItems;
+        }
+
+        private void cbloc_TextUpdate(object sender, EventArgs e)
+        {
+            /*
+            * 用于模糊搜索名称
+            */
+            var input = cbloc.Text.ToUpper();
+            cbloc.Items.Clear();
+            if (string.IsNullOrWhiteSpace(input)) cbloc.Items.AddRange(listCombobox.ToArray());
+            else
+            {
+                var newList = listCombobox.ToArray().Where(x => x.IndexOf(input, StringComparison.CurrentCultureIgnoreCase) != -1).ToArray();
+                cbloc.Items.AddRange(newList);
+            }
+            cbloc.SelectionStart = cbloc.Text.Length;
+            Cursor = Cursors.Default;
+            cbloc.DroppedDown = true;
+        }
+        private int product_Exit(string data_input,string number)
+        {
+            /*
+             * conn:用于连接EXCEL表格
+             * cmd：用于作为sql的查询条件
+             * CommandText:用于sql语句查询
+             * @name:作为参数查询的参数入口
+             */
+            int exit_flag = 0;
+            OleDbConnection conn = new OleDbConnection(data_input);
+            string CommandText = "select count(*) from [productSheet] where 序列号=@number";
+            OleDbParameter parameters = new OleDbParameter("@number", number);
+            OleDbCommand cmd = new OleDbCommand(CommandText, conn);
+            cmd.Parameters.Add(parameters);
+            conn.Open();
+            exit_flag = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+            return exit_flag;
+        }
+        private void doneaction_Click(object sender, EventArgs e)
+        {
+            int flag_Exit = 0;
+            int produce_exit = 0;
+            string file_loc = "F:/" + cbloc.Text + ".xlsx;";
+            string isfile = "F:/" + cbloc.Text + ".xlsx";
+            if (File.Exists(isfile))
+            {
+                flag_Exit = 1;
+            }
+            string data_input = "Provider=Microsoft.Ace.OLEDB.12.0;Data Source=" + file_loc + "Extended Properties='Excel 12.0 XML;IMEX = 1'";
+            OleDbConnection conn = new OleDbConnection(data_input);
+            string sqlCreate = "CREATE TABLE productSheet ([物品名称] VarChar,[序列号] VarChar,[产品规格] VarChar,[备注] VarChar,[入库人] VarChar,[入库时间] VarChar)";
+            OleDbCommand cmd = new OleDbCommand(sqlCreate, conn);
+            //创建Excel文件：C:/test.xls
+            conn.Open();
+            //创建TestSheet工作表
+            if(flag_Exit==0)
+            {
+                cmd.ExecuteNonQuery();
+            }
+
+            //添加数据
+
+            if(flag_Exit==1)
+            {
+                produce_exit = product_Exit(data_input, tbnumber.Text);
+            }
+            if(produce_exit==0)
+            {
+                cmd.CommandText = "INSERT INTO productSheet VALUES(@name,@number,@scale,@msg,@person,@time)";
+                OleDbParameter parname = new OleDbParameter("@name", tbname.Text);
+                OleDbParameter parnumber = new OleDbParameter("@number", tbnumber.Text);
+                OleDbParameter parscale = new OleDbParameter("@scale", tbscale.Text);
+                OleDbParameter parmsg = new OleDbParameter("@msg", rbmsg.Text);
+                OleDbParameter parperson = new OleDbParameter("@person", truename.Text);
+                OleDbParameter partime = new OleDbParameter("@time", lbtime.Text);
+                cmd.Parameters.Add(parname);
+                cmd.Parameters.Add(parnumber);
+                cmd.Parameters.Add(parscale);
+                cmd.Parameters.Add(parmsg);
+                cmd.Parameters.Add(parperson);
+                cmd.Parameters.Add(partime);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                MessageBox.Show("重复入库！");
+            }
+            //关闭连接
+            conn.Close();
+            if(produce_exit==0)
+            {
+                MessageBox.Show("入库成功！");
+            }
+            
         }
     }
 }

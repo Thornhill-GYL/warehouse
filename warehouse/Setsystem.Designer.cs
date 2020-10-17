@@ -37,6 +37,9 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tbtest = new System.Windows.Forms.TextBox();
             this.tbback = new System.Windows.Forms.TextBox();
+            this.tbproduct = new System.Windows.Forms.TextBox();
+            this.tbstoreloc = new System.Windows.Forms.TextBox();
+            this.tbpersonloc = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cbpersonname
@@ -79,7 +82,7 @@
             // 
             // btstore
             // 
-            this.btstore.Location = new System.Drawing.Point(88, 281);
+            this.btstore.Location = new System.Drawing.Point(88, 316);
             this.btstore.Name = "btstore";
             this.btstore.Size = new System.Drawing.Size(191, 35);
             this.btstore.TabIndex = 4;
@@ -89,7 +92,7 @@
             // 
             // btmsg
             // 
-            this.btmsg.Location = new System.Drawing.Point(88, 361);
+            this.btmsg.Location = new System.Drawing.Point(88, 413);
             this.btmsg.Name = "btmsg";
             this.btmsg.Size = new System.Drawing.Size(191, 32);
             this.btmsg.TabIndex = 5;
@@ -115,11 +118,35 @@
             this.tbback.Size = new System.Drawing.Size(100, 25);
             this.tbback.TabIndex = 7;
             // 
+            // tbproduct
+            // 
+            this.tbproduct.Location = new System.Drawing.Point(88, 261);
+            this.tbproduct.Name = "tbproduct";
+            this.tbproduct.Size = new System.Drawing.Size(191, 25);
+            this.tbproduct.TabIndex = 8;
+            // 
+            // tbstoreloc
+            // 
+            this.tbstoreloc.Location = new System.Drawing.Point(88, 370);
+            this.tbstoreloc.Name = "tbstoreloc";
+            this.tbstoreloc.Size = new System.Drawing.Size(191, 25);
+            this.tbstoreloc.TabIndex = 9;
+            // 
+            // tbpersonloc
+            // 
+            this.tbpersonloc.Location = new System.Drawing.Point(88, 469);
+            this.tbpersonloc.Name = "tbpersonloc";
+            this.tbpersonloc.Size = new System.Drawing.Size(191, 25);
+            this.tbpersonloc.TabIndex = 10;
+            // 
             // Setsystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 522);
+            this.Controls.Add(this.tbpersonloc);
+            this.Controls.Add(this.tbstoreloc);
+            this.Controls.Add(this.tbproduct);
             this.Controls.Add(this.tbback);
             this.Controls.Add(this.tbtest);
             this.Controls.Add(this.btmsg);
@@ -147,5 +174,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox tbtest;
         private System.Windows.Forms.TextBox tbback;
+        private System.Windows.Forms.TextBox tbproduct;
+        private System.Windows.Forms.TextBox tbstoreloc;
+        private System.Windows.Forms.TextBox tbpersonloc;
     }
 }

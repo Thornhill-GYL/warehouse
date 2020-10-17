@@ -32,38 +32,16 @@ namespace warehouse
             /*
              * 获取当前年月，并将其格式定位YYMM
              */
+           
             timelabel.Text = DateTime.Now.ToString("yyMMdd");
-            /*先连接excel表格获取内容
-             * dt是全局定义的datatable表格，用于存储表格
-             * dgtest是datagridview用来显示获取的表格信息
+            /*connectsql是用于连接xlxs的类
+             * connectxls函数主要用于窗口的LOAD函数中，能够将的表格信息load进入窗口
+             * dt:返回DATATable类型的函数，用于存储表格的信息
+             * data_source :文件存储的位置
              */
-            OleDbConnection conn = new OleDbConnection("Provider=Microsoft.Ace.OLEDB.12.0;Data Source=F:/competition/smart car/other/C#出入库管理软件/零部件命名规则.xlsx;Extended Properties=Excel 8.0;");
-
-            OleDbCommand cmd = conn.CreateCommand();
-
-            //cmd.CommandText = "select * from grades";Microsoft.Jet.OLEDB
-            cmd.CommandText = "select * from [Sheet1$]";
-            conn.Open();
-            OleDbDataReader dr = cmd.ExecuteReader();
-            DataTable dtone = new DataTable();
-            if (dr.HasRows)
-            {
-                for (int i = 0; i < dr.FieldCount; i++)
-                {
-                    dt.Columns.Add(dr.GetName(i));
-                }
-            }
-            while (dr.Read())
-            {
-                DataRow row = dt.NewRow();
-                for (int j = 0; j < dr.FieldCount; j++)
-                {
-                    row[j] = dr[j];
-                }
-                dt.Rows.Add(row);
-            }
-            cmd.Dispose();
-            conn.Close();
+            string data_source = "F:/competition/smart car/other/C#出入库管理软件/零部件命名规则.xlsx;";
+            connectsql inputcn = new connectsql();
+            dt = inputcn.connectxls(data_source);
             dgtest.DataSource = dt;
 
             /*
@@ -138,7 +116,7 @@ namespace warehouse
         /*
          * 用于获取拟生成序号的查询函数
          * cbtext:入库产品的名称；
-         * ordernum:入库铲平的序号；
+         * ordernum:入库产品的序号；
          * datatime:入库传品的时间；
          * first..third:最终生成序号（除去时间）的组成部分
          */
@@ -157,7 +135,7 @@ namespace warehouse
             OleDbParameter parameterssecond = new OleDbParameter("@name", cbtext);
             OleDbCommand cmd = new OleDbCommand(CommandText_first, conn);
             OleDbCommand cmdsecond = new OleDbCommand(ComandText_second, conn);
-            cmd.Parameters.Add(parameters);
+            cmd.Parameters.Add(parameters); 
             cmdsecond.Parameters.Add(parameterssecond);
             conn.Open();
             OleDbDataReader dr = cmd.ExecuteReader();
