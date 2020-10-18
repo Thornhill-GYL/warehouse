@@ -145,15 +145,20 @@ namespace warehouse
         {
             int flag_Exit = 0;
             int produce_exit = 0;
-            string file_loc = "F:/" + cbloc.Text + ".xlsx;";
-            string isfile = "F:/" + cbloc.Text + ".xlsx";
+            string file_loc = "F:/库存.xlsx;";
+            string isfile = "F:/库存.xlsx";
+            //备注信息更新
+            if(tbnewmsg.Text!="")
+            {
+                rbmsg.Text = tbnewmsg.Text;
+            }
             if (File.Exists(isfile))
             {
                 flag_Exit = 1;
             }
             string data_input = "Provider=Microsoft.Ace.OLEDB.12.0;Data Source=" + file_loc + "Extended Properties='Excel 12.0 XML;IMEX = 1'";
             OleDbConnection conn = new OleDbConnection(data_input);
-            string sqlCreate = "CREATE TABLE productSheet ([物品名称] VarChar,[序列号] VarChar,[产品规格] VarChar,[备注] VarChar,[入库人] VarChar,[入库时间] VarChar)";
+            string sqlCreate = "CREATE TABLE productSheet ([物品名称] VarChar,[序列号] VarChar,[产品规格] VarChar,[备注] VarChar,[存储位置] VarChar,[入库人] VarChar,[入库时间] VarChar)";
             OleDbCommand cmd = new OleDbCommand(sqlCreate, conn);
             //创建Excel文件：C:/test.xls
             conn.Open();
@@ -171,17 +176,19 @@ namespace warehouse
             }
             if(produce_exit==0)
             {
-                cmd.CommandText = "INSERT INTO productSheet VALUES(@name,@number,@scale,@msg,@person,@time)";
+                cmd.CommandText = "INSERT INTO productSheet VALUES(@name,@number,@scale,@msg,@location,@person,@time)";
                 OleDbParameter parname = new OleDbParameter("@name", tbname.Text);
                 OleDbParameter parnumber = new OleDbParameter("@number", tbnumber.Text);
                 OleDbParameter parscale = new OleDbParameter("@scale", tbscale.Text);
                 OleDbParameter parmsg = new OleDbParameter("@msg", rbmsg.Text);
+                OleDbParameter storeloc = new OleDbParameter("@location", cbloc.Text);
                 OleDbParameter parperson = new OleDbParameter("@person", truename.Text);
                 OleDbParameter partime = new OleDbParameter("@time", lbtime.Text);
                 cmd.Parameters.Add(parname);
                 cmd.Parameters.Add(parnumber);
                 cmd.Parameters.Add(parscale);
                 cmd.Parameters.Add(parmsg);
+                cmd.Parameters.Add(storeloc);
                 cmd.Parameters.Add(parperson);
                 cmd.Parameters.Add(partime);
                 cmd.ExecuteNonQuery();
