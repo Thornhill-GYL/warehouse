@@ -41,5 +41,11 @@ namespace warehouse
             donestore instorewindow = new donestore();
             instorewindow.Show();
         }
+
+        private void outbt_Click(object sender, EventArgs e)
+        {
+            outstore outstorewindow = new outstore();
+            outstorewindow.Show();
+        }
     }
 }

@@ -58,6 +58,39 @@ namespace warehouse
             conn.Close();
             return dt;
         }
+        /*
+         *数据库查询函数 
+         */
+         public string getsearch(string data_source,string purpose,string cbtext)
+        {
+            string ans = "";
+            
+
+            string CommandText = "null";
+            string data_input = "Provider=Microsoft.Ace.OLEDB.12.0;Data Source=" + data_source + "Extended Properties=Excel 8.0;";
+
+
+            OleDbConnection conn = new OleDbConnection(data_input);
+       
+            if (purpose == "unit")
+                CommandText = "select 单位 from [Sheet1$] where 名称=@name";
+            else if (purpose == "standard")
+                CommandText = "select 规格 from [Sheet1$] where 名称=@name";
+            else if(purpose == "inloc")
+                CommandText = "select 存储位置 from productSheet where 物品名称=@name";
+            OleDbParameter parameters = new OleDbParameter("@name", cbtext);
+            OleDbCommand cmd = new OleDbCommand(CommandText, conn);
+            cmd.Parameters.Add(parameters);
+            conn.Open();
+            OleDbDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                ans = dr[0].ToString();
+            }
+
+            conn.Close();
+            return ans;
+        }
     }
 
 

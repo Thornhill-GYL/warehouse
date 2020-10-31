@@ -165,7 +165,7 @@
             // 
             this.truename.Location = new System.Drawing.Point(529, 128);
             this.truename.Name = "truename";
-            this.truename.Size = new System.Drawing.Size(157, 25);
+            this.truename.Size = new System.Drawing.Size(150, 25);
             this.truename.TabIndex = 16;
             // 
             // doneaction
@@ -183,7 +183,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(409, 228);
+            this.label2.Location = new System.Drawing.Point(408, 234);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 19);
             this.label2.TabIndex = 18;
@@ -192,7 +192,7 @@
             // cbloc
             // 
             this.cbloc.FormattingEnabled = true;
-            this.cbloc.Location = new System.Drawing.Point(529, 224);
+            this.cbloc.Location = new System.Drawing.Point(528, 234);
             this.cbloc.Name = "cbloc";
             this.cbloc.Size = new System.Drawing.Size(151, 23);
             this.cbloc.TabIndex = 19;
@@ -202,7 +202,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(409, 271);
+            this.label3.Location = new System.Drawing.Point(409, 281);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 19);
             this.label3.TabIndex = 20;
@@ -210,7 +210,7 @@
             // 
             // tbnewmsg
             // 
-            this.tbnewmsg.Location = new System.Drawing.Point(529, 271);
+            this.tbnewmsg.Location = new System.Drawing.Point(529, 281);
             this.tbnewmsg.Name = "tbnewmsg";
             this.tbnewmsg.Size = new System.Drawing.Size(151, 96);
             this.tbnewmsg.TabIndex = 21;
@@ -218,7 +218,7 @@
             // 
             // testtb
             // 
-            this.testtb.Location = new System.Drawing.Point(529, 185);
+            this.testtb.Location = new System.Drawing.Point(529, 180);
             this.testtb.Name = "testtb";
             this.testtb.Size = new System.Drawing.Size(150, 25);
             this.testtb.TabIndex = 22;
@@ -227,7 +227,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(408, 191);
+            this.label4.Location = new System.Drawing.Point(409, 186);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 19);
             this.label4.TabIndex = 23;

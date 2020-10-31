@@ -97,6 +97,12 @@
       <DependentUpon>ConfirmEQ.cs</DependentUpon>
     </Compile>
     <Compile Include="Instoremg.cs" />
+    <Compile Include="outstore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="outstore.Designer.cs">
+      <DependentUpon>outstore.cs</DependentUpon>
+    </Compile>
     <Compile Include="personEQ.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConfirmEQ.resx">
       <DependentUpon>ConfirmEQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="outstore.resx">
+      <DependentUpon>outstore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="personEQ.resx">
       <DependentUpon>personEQ.cs</DependentUpon>

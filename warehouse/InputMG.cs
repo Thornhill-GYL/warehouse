@@ -88,6 +88,7 @@ namespace warehouse
         }
         /*
          * 用于获取单位的查询函数
+         * 该函数移植到filestring中，形成查询调用函数
          */
          public string Getsearch(string name,string cbtext)
         {
@@ -181,11 +182,15 @@ namespace warehouse
 
         private void instore_Click(object sender, EventArgs e)
         {
-            if(cbname.Text!=null)
+            string data_source = "F:/competition/smart car/other/C#出入库管理软件/零部件命名规则.xlsx;";
+            if (cbname.Text!=null)
             {
+                connectsql searchinfo = new connectsql();
                 countnumber(cbname.Text);//用于更新序号的查询函数
-                unit.Text = Getsearch("unit", cbname.Text);//用于获取单位的查询函数
-                tbstandard.Text = Getsearch("standard", cbname.Text);//用于获取物品规格的函数
+                //unit.Text = Getsearch("unit", cbname.Text);//用于获取单位的查询函数
+                unit.Text = searchinfo.getsearch(data_source, "unit", cbname.Text);
+                //tbstandard.Text = Getsearch("standard", cbname.Text);//用于获取物品规格的函数
+                tbstandard.Text = searchinfo.getsearch(data_source, "standard", cbname.Text);
                 numberlb.Text = Producenumber(cbname.Text, nporder.Value, timelabel.Text);//用于生成序号序列
             }
             else
