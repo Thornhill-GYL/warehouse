@@ -48,6 +48,7 @@
             this.lbtime = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.testtb = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // readEQ
@@ -145,12 +146,13 @@
             // btoutst
             // 
             this.btoutst.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btoutst.Location = new System.Drawing.Point(593, 334);
+            this.btoutst.Location = new System.Drawing.Point(605, 353);
             this.btoutst.Name = "btoutst";
             this.btoutst.Size = new System.Drawing.Size(118, 58);
             this.btoutst.TabIndex = 9;
             this.btoutst.Text = "出库";
             this.btoutst.UseVisualStyleBackColor = true;
+            this.btoutst.Click += new System.EventHandler(this.btoutst_Click);
             // 
             // tbname
             // 
@@ -202,11 +204,12 @@
             this.cbloc.Name = "cbloc";
             this.cbloc.Size = new System.Drawing.Size(137, 23);
             this.cbloc.TabIndex = 16;
+            this.cbloc.TextUpdate += new System.EventHandler(this.cbloc_TextUpdate);
             // 
             // lbtime
             // 
             this.lbtime.AutoSize = true;
-            this.lbtime.Location = new System.Drawing.Point(590, 417);
+            this.lbtime.Location = new System.Drawing.Point(492, 386);
             this.lbtime.Name = "lbtime";
             this.lbtime.Size = new System.Drawing.Size(55, 15);
             this.lbtime.TabIndex = 17;
@@ -229,11 +232,22 @@
             this.testtb.Size = new System.Drawing.Size(135, 25);
             this.testtb.TabIndex = 19;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(427, 382);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 19);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "日期：";
+            // 
             // outstore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.testtb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbtime);
@@ -284,5 +298,6 @@
         private System.Windows.Forms.Label lbtime;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox testtb;
+        private System.Windows.Forms.Label label2;
     }
 }

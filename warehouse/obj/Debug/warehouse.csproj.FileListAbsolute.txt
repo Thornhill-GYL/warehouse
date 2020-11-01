@@ -11,7 +11,6 @@ F:\code\c#\warehouse\warehouse\bin\Debug\QRCoder.dll
 F:\code\c#\warehouse\warehouse\bin\Debug\System.Drawing.Common.dll
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.csproj.CopyComplete
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.Form2.resources
-F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.csprojAssemblyReference.cache
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.InputMG.resources
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.ConfirmEQ.resources
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.Setsystem.resources
@@ -26,3 +25,4 @@ F:\code\c#\warehouse\warehouse\bin\Debug\System.Security.Cryptography.Primitives
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.personEQ.resources
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.donestore.resources
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.outstore.resources
+F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.csprojAssemblyReference.cache

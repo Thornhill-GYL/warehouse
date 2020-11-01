@@ -145,12 +145,21 @@ namespace warehouse
         {
             int flag_Exit = 0;
             int produce_exit = 0;
+            string pro_status = "入库";
             string file_loc = "F:/库存.xlsx;";
             string isfile = "F:/库存.xlsx";
             //备注信息更新
             if(tbnewmsg.Text!="")
             {
-                rbmsg.Text = tbnewmsg.Text;
+                if(rbmsg.Text=="无"||rbmsg.Text=="")//若rbmsg中的备注信息为无，或者为空，则直接将信息进行替换
+                {
+                    rbmsg.Text = tbnewmsg.Text;
+                }
+                else
+                {
+                    rbmsg.Text = rbmsg.Text + tbnewmsg.Text;
+                }
+                
             }
             if (File.Exists(isfile))
             {
@@ -158,12 +167,13 @@ namespace warehouse
             }
             string data_input = "Provider=Microsoft.Ace.OLEDB.12.0;Data Source=" + file_loc + "Extended Properties='Excel 12.0 XML;IMEX = 1'";
             OleDbConnection conn = new OleDbConnection(data_input);
-            string sqlCreate = "CREATE TABLE productSheet ([物品名称] VarChar,[序列号] VarChar,[产品规格] VarChar,[备注] VarChar,[存储位置] VarChar,[入库人] VarChar,[入库时间] VarChar)";
+            //创建的库存表的时候，将出库的表头也同时插入
+            string sqlCreate = "CREATE TABLE productSheet ([物品名称] VarChar,[序列号] VarChar,[产品规格] VarChar,[备注] VarChar,[存储位置] VarChar,[入库人] VarChar,[入库时间] VarChar,[物品状态] VarChar,[物品去向] VarChar,[出库人] VarChar,[出库时间] VarChar)";
             OleDbCommand cmd = new OleDbCommand(sqlCreate, conn);
             //创建Excel文件：C:/test.xls
             conn.Open();
-            //创建TestSheet工作表
-            if(flag_Exit==0)
+            //创建productSheet工作表
+            if (flag_Exit==0)
             {
                 cmd.ExecuteNonQuery();
             }
@@ -176,7 +186,8 @@ namespace warehouse
             }
             if(produce_exit==0)
             {
-                cmd.CommandText = "INSERT INTO productSheet VALUES(@name,@number,@scale,@msg,@location,@person,@time)";
+                cmd.CommandText = "INSERT INTO productSheet ([物品名称],[序列号],[产品规格],[备注],[存储位置],[入库人],[入库时间],[物品状态]) VALUES(@name,@number,@scale,@msg,@location,@person,@time,@status)";
+
                 OleDbParameter parname = new OleDbParameter("@name", tbname.Text);
                 OleDbParameter parnumber = new OleDbParameter("@number", tbnumber.Text);
                 OleDbParameter parscale = new OleDbParameter("@scale", tbscale.Text);
@@ -184,6 +195,7 @@ namespace warehouse
                 OleDbParameter storeloc = new OleDbParameter("@location", cbloc.Text);
                 OleDbParameter parperson = new OleDbParameter("@person", truename.Text);
                 OleDbParameter partime = new OleDbParameter("@time", lbtime.Text);
+                OleDbParameter pstatus = new OleDbParameter("@status", pro_status);
                 cmd.Parameters.Add(parname);
                 cmd.Parameters.Add(parnumber);
                 cmd.Parameters.Add(parscale);
@@ -191,6 +203,7 @@ namespace warehouse
                 cmd.Parameters.Add(storeloc);
                 cmd.Parameters.Add(parperson);
                 cmd.Parameters.Add(partime);
+                cmd.Parameters.Add(pstatus);
                 cmd.ExecuteNonQuery();
             }
             else
