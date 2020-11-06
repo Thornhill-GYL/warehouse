@@ -185,7 +185,7 @@ namespace warehouse
             cmd.Parameters.Add(poutloc);
             cmd.Parameters.Add(outperson);
             cmd.Parameters.Add(outtime);
-            cmd.Parameters.Add(outstatus);
+            cmd.Parameters.Add(outstatus); 
             cmd.Parameters.Add(parname);
            
            

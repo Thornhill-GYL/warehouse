@@ -77,7 +77,7 @@
             // 
             // outbt
             // 
-            this.outbt.Location = new System.Drawing.Point(127, 419);
+            this.outbt.Location = new System.Drawing.Point(127, 398);
             this.outbt.Name = "outbt";
             this.outbt.Size = new System.Drawing.Size(156, 74);
             this.outbt.TabIndex = 4;

@@ -64,6 +64,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="authority.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="authority.Designer.cs">
+      <DependentUpon>authority.cs</DependentUpon>
+    </Compile>
     <Compile Include="donestore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <Compile Include="Setsystem.Designer.cs">
       <DependentUpon>Setsystem.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="authority.resx">
+      <DependentUpon>authority.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="donestore.resx">
       <DependentUpon>donestore.cs</DependentUpon>
     </EmbeddedResource>

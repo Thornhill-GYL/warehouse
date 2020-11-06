@@ -32,8 +32,10 @@ namespace warehouse
 
         private void sysbt_Click(object sender, EventArgs e)
         {
-            Setsystem configwindow = new Setsystem();
-            configwindow.Show();
+            //Setsystem configwindow = new Setsystem();
+            //configwindow.Show();
+            authority usercode = new authority();
+            usercode.Show();
         }
 
         private void storebt_Click(object sender, EventArgs e)
