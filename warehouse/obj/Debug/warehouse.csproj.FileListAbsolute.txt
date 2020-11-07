@@ -27,3 +27,4 @@ F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.donestore.resources
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.outstore.resources
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.csprojAssemblyReference.cache
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.authority.resources
+F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.searchstore.resources

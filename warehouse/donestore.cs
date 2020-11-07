@@ -65,8 +65,6 @@ namespace warehouse
 
             lbtime.Text = DateTime.Now.ToString("d");
             /*先连接excel表格获取内容
-             * dt是全局定义的datatable表格，用于存储表格
-             * dgtest是datagridview用来显示获取的表格信息
              */
 
             /*

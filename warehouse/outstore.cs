@@ -96,15 +96,17 @@ namespace warehouse
             }
             else
                 data_source = file_storeloc;
+
+
             testtb.Text = data_source;//显示现在读取存储位置的仓库信息
             //string data_source = "F:/competition/smart car/other/C#出入库管理软件/仓库位置.xlsx;";
             connectsql donecn = new connectsql();
             DataTable dt = donecn.connectxls(data_source);
 
             /*
-            * **功能：将表格中的“名称”绑定到combobox中
+            * **功能：将表格中的“出库后物品仓库”绑定到combobox中
             * listcombobox:全局定义的变量，用于作为item的中间变量
-            * list:局部定义变量，用于将表格中的“名称”提取出来
+            * list:局部定义变量，用于将表格中的“出库后物品仓库”提取出来
             */
             List<string> list = dt.AsEnumerable().Select(c => c.Field<string>("出库后物品仓库")).ToList();
 
@@ -174,6 +176,7 @@ namespace warehouse
             if(produce_exit<1)
             {
                 MessageBox.Show("仓库中无当前产品");
+                return;
             }
             conn.Open();
             OleDbParameter poutloc = new OleDbParameter("@outloc", cbloc.Text);

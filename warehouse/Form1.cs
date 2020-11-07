@@ -32,8 +32,7 @@ namespace warehouse
 
         private void sysbt_Click(object sender, EventArgs e)
         {
-            //Setsystem configwindow = new Setsystem();
-            //configwindow.Show();
+            //系统部分 首先要进入用户名和密码部分的查询
             authority usercode = new authority();
             usercode.Show();
         }
@@ -48,6 +47,12 @@ namespace warehouse
         {
             outstore outstorewindow = new outstore();
             outstorewindow.Show();
+        }
+
+        private void btsearch_Click(object sender, EventArgs e)
+        {
+            searchstore search_get = new searchstore();
+            search_get.Show();
         }
     }
 }

@@ -33,11 +33,12 @@
             this.sysbt = new System.Windows.Forms.Button();
             this.storebt = new System.Windows.Forms.Button();
             this.outbt = new System.Windows.Forms.Button();
+            this.btsearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buildQR
             // 
-            this.buildQR.Location = new System.Drawing.Point(123, 196);
+            this.buildQR.Location = new System.Drawing.Point(123, 173);
             this.buildQR.Name = "buildQR";
             this.buildQR.Size = new System.Drawing.Size(160, 75);
             this.buildQR.TabIndex = 0;
@@ -47,7 +48,7 @@
             // 
             // megbt
             // 
-            this.megbt.Location = new System.Drawing.Point(123, 118);
+            this.megbt.Location = new System.Drawing.Point(123, 106);
             this.megbt.Name = "megbt";
             this.megbt.Size = new System.Drawing.Size(155, 61);
             this.megbt.TabIndex = 1;
@@ -67,7 +68,7 @@
             // 
             // storebt
             // 
-            this.storebt.Location = new System.Drawing.Point(127, 292);
+            this.storebt.Location = new System.Drawing.Point(127, 267);
             this.storebt.Name = "storebt";
             this.storebt.Size = new System.Drawing.Size(156, 84);
             this.storebt.TabIndex = 3;
@@ -77,7 +78,7 @@
             // 
             // outbt
             // 
-            this.outbt.Location = new System.Drawing.Point(127, 398);
+            this.outbt.Location = new System.Drawing.Point(123, 378);
             this.outbt.Name = "outbt";
             this.outbt.Size = new System.Drawing.Size(156, 74);
             this.outbt.TabIndex = 4;
@@ -85,11 +86,22 @@
             this.outbt.UseVisualStyleBackColor = true;
             this.outbt.Click += new System.EventHandler(this.outbt_Click);
             // 
+            // btsearch
+            // 
+            this.btsearch.Location = new System.Drawing.Point(123, 488);
+            this.btsearch.Name = "btsearch";
+            this.btsearch.Size = new System.Drawing.Size(152, 56);
+            this.btsearch.TabIndex = 5;
+            this.btsearch.Text = "库存查询";
+            this.btsearch.UseVisualStyleBackColor = true;
+            this.btsearch.Click += new System.EventHandler(this.btsearch_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 601);
+            this.Controls.Add(this.btsearch);
             this.Controls.Add(this.outbt);
             this.Controls.Add(this.storebt);
             this.Controls.Add(this.sysbt);
@@ -108,6 +120,7 @@
         private System.Windows.Forms.Button sysbt;
         private System.Windows.Forms.Button storebt;
         private System.Windows.Forms.Button outbt;
+        private System.Windows.Forms.Button btsearch;
     }
 }
 

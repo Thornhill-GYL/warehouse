@@ -33,6 +33,8 @@ namespace warehouse
                 //跳转到设置页面
                 Setsystem configwindow = new Setsystem();
                 configwindow.Show();
+
+                this.Hide();
             }
             else
             {
