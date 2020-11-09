@@ -182,6 +182,14 @@ namespace warehouse
             connectsql getinfo_done = new connectsql();//创建查询实例
             string data_source = "F:/库存.xlsx;";//该部分的检查在load部分已经完成
             DataTable dt = new DataTable();//实例化一个datatable
+            if(tb_num.Text!="")
+            {
+                dt = getinfo_done.getwhole(data_source, "tbnum", tb_num.Text, "productSheet");
+            }
+            if(tb_product.Text!="")
+            {
+                dt = getinfo_done.getwhole(data_source, "tbpro", tb_product.Text, "productSheet");
+            }
             if (cb_putnam.Text!="")
             {
                 dt = getinfo_done.getwhole(data_source, "putname", cb_putnam.Text, "productSheet");
@@ -213,14 +221,25 @@ namespace warehouse
             }
             if (rb_put.Checked)
             {
+                
                 dt = getinfo_done.getwhole(data_source, "puttime", dp_put.Text, "productSheet");
 
             }
             if (rb_out.Checked)
             {
+                
                 dt = getinfo_done.getwhole(data_source, "outtime", dp_out.Text, "productSheet");
 
             }
+            if(tb_num.Text==""&& tb_product.Text==""&& cb_putnam.Text=="" && cb_putloc.Text==""
+                &&cb_outloc.Text==""&&cb_outname.Text=="")
+            {
+                if(rb_put.Checked==false&& rb_out.Checked==false)
+                {
+                    dt = getinfo_done.getwhole(data_source, "all", "nothing","productSheet");
+                }
+            }
+           
             dgshow_all.DataSource = dt;
         }
     }

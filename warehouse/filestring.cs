@@ -140,11 +140,18 @@ namespace warehouse
             }
             else
             {
-                if(target_info=="")
+                if(target_info=="all")
                 {
                     CommandText = "select * from" + " " + sheet ;
                 }
-              
+                if(target_info == "tbnum")
+                {
+                    CommandText = "select * from" + " " + sheet + " " + "where 序列号 = @name";
+                }
+                if(target_info == "tbpro")
+                {
+                    CommandText = "select * from" + " " + sheet + " " + "where 物品名称 = @name";
+                }
                 if (target_info == "putname")
                 {
                     CommandText = "select * from" + " " + sheet + " " + "where 入库人 = @name";

@@ -48,6 +48,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.rb_put = new System.Windows.Forms.RadioButton();
             this.rb_out = new System.Windows.Forms.RadioButton();
+            this.rbtime = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgshow_all)).BeginInit();
             this.SuspendLayout();
             // 
@@ -243,11 +244,24 @@
             this.rb_out.Text = "出库时间";
             this.rb_out.UseVisualStyleBackColor = true;
             // 
+            // rbtime
+            // 
+            this.rbtime.AutoSize = true;
+            this.rbtime.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rbtime.Location = new System.Drawing.Point(670, 166);
+            this.rbtime.Name = "rbtime";
+            this.rbtime.Size = new System.Drawing.Size(125, 23);
+            this.rbtime.TabIndex = 20;
+            this.rbtime.TabStop = true;
+            this.rbtime.Text = "不考虑时间";
+            this.rbtime.UseVisualStyleBackColor = true;
+            // 
             // searchstore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 455);
+            this.Controls.Add(this.rbtime);
             this.Controls.Add(this.rb_out);
             this.Controls.Add(this.rb_put);
             this.Controls.Add(this.button1);
@@ -299,5 +313,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton rb_put;
         private System.Windows.Forms.RadioButton rb_out;
+        private System.Windows.Forms.RadioButton rbtime;
     }
 }
