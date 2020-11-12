@@ -23,7 +23,7 @@ namespace warehouse
         public static string getmsg(string item,string all)
         {
             string result = "";
-            char spec = Convert.ToChar(13);
+            char spec = Convert.ToChar(10);
             for (int i = 0; i < all.Length; i++)
             {
                 if (item[0] == all[i])
@@ -41,13 +41,24 @@ namespace warehouse
         }
         private void btreadEQ_Click(object sender, EventArgs e)
         {
-            string filename = "F:/product_info.png";
-            string EQinfo = EQcoder.readEQ(filename);
-            tbname.Text = getmsg(lbname.Text, EQinfo);
-            tbnumber.Text = getmsg(lbnumber.Text, EQinfo);
-            tbscale.Text = getmsg(lbscale.Text, EQinfo);
-            rbmsg.Text = getmsg(lbmsg.Text, EQinfo);
+            //string filename = "F:/product_info.png";
+            //string EQinfo = EQcoder.readEQ(filename);
+            EQcoder product_read = new EQcoder();
             
+            string file_input = " ";
+            while (filestring.itemfile_string == null)
+            {
+                product_read.getEQ_product();
+               
+            }
+            file_input = filestring.itemfile_string;
+        
+
+            tbname.Text = getmsg(lbname.Text, file_input);
+            tbnumber.Text = getmsg(lbnumber.Text, file_input);
+            tbscale.Text = getmsg(lbscale.Text, file_input);
+            rbmsg.Text = getmsg(lbmsg.Text, file_input);
+
 
         }
 

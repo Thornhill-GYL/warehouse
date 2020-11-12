@@ -28,3 +28,6 @@ F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.outstore.resources
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.csprojAssemblyReference.cache
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.authority.resources
 F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.searchstore.resources
+F:\code\c#\warehouse\warehouse\bin\Debug\Interop.CoreScanner.dll
+F:\code\c#\warehouse\warehouse\obj\Debug\Interop.CoreScanner.dll
+F:\code\c#\warehouse\warehouse\obj\Debug\warehouse.csproj.ResolveComReference.cache
