@@ -35,8 +35,6 @@
             this.btstore = new System.Windows.Forms.Button();
             this.btmsg = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.tbtest = new System.Windows.Forms.TextBox();
-            this.tbback = new System.Windows.Forms.TextBox();
             this.tbproduct = new System.Windows.Forms.TextBox();
             this.tbstoreloc = new System.Windows.Forms.TextBox();
             this.tbpersonloc = new System.Windows.Forms.TextBox();
@@ -104,20 +102,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // tbtest
-            // 
-            this.tbtest.Location = new System.Drawing.Point(88, 32);
-            this.tbtest.Name = "tbtest";
-            this.tbtest.Size = new System.Drawing.Size(238, 25);
-            this.tbtest.TabIndex = 6;
-            // 
-            // tbback
-            // 
-            this.tbback.Location = new System.Drawing.Point(141, 165);
-            this.tbback.Name = "tbback";
-            this.tbback.Size = new System.Drawing.Size(100, 25);
-            this.tbback.TabIndex = 7;
-            // 
             // tbproduct
             // 
             this.tbproduct.Location = new System.Drawing.Point(88, 261);
@@ -147,8 +131,6 @@
             this.Controls.Add(this.tbpersonloc);
             this.Controls.Add(this.tbstoreloc);
             this.Controls.Add(this.tbproduct);
-            this.Controls.Add(this.tbback);
-            this.Controls.Add(this.tbtest);
             this.Controls.Add(this.btmsg);
             this.Controls.Add(this.btstore);
             this.Controls.Add(this.btitem);
@@ -172,8 +154,6 @@
         private System.Windows.Forms.Button btstore;
         private System.Windows.Forms.Button btmsg;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.TextBox tbtest;
-        private System.Windows.Forms.TextBox tbback;
         private System.Windows.Forms.TextBox tbproduct;
         private System.Windows.Forms.TextBox tbstoreloc;
         private System.Windows.Forms.TextBox tbpersonloc;

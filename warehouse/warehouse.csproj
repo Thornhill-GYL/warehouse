@@ -130,6 +130,7 @@
     <Compile Include="Setsystem.Designer.cs">
       <DependentUpon>Setsystem.cs</DependentUpon>
     </Compile>
+    <Compile Include="TSCLIB.cs" />
     <EmbeddedResource Include="authority.resx">
       <DependentUpon>authority.cs</DependentUpon>
     </EmbeddedResource>

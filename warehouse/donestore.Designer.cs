@@ -135,7 +135,7 @@
             // btperson
             // 
             this.btperson.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btperson.Location = new System.Drawing.Point(401, 21);
+            this.btperson.Location = new System.Drawing.Point(412, 31);
             this.btperson.Name = "btperson";
             this.btperson.Size = new System.Drawing.Size(229, 39);
             this.btperson.TabIndex = 12;

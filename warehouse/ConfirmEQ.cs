@@ -34,7 +34,7 @@ namespace warehouse
 
 
         }
-
+       
         private void btgen_Click(object sender, EventArgs e)
         {
             string info = "物品名称："+cfname.Text+"\n"
@@ -44,6 +44,11 @@ namespace warehouse
             string filename = "F:/product_info.png";
             //生成二维码的函数
             pbcode.ImageLocation = EQcoder.generate(filename, 300, 300, info);
+            //*****打印二维码***
+            TSCLIB.openportExt();
+            TSCLIB.printCode(info,"product");
+            TSCLIB.closeportExt();
+            //****打印二维码
             timer.Interval = 30000; // here time in milliseconds
             timer.Tick += timer_Tick;
             timer.Start();

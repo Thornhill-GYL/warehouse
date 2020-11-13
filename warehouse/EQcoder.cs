@@ -74,6 +74,7 @@ namespace warehouse
         static CCoreScannerClass cCoreScannerClass;
         void OnBarcodeEvent(short eventType, ref string pscanData)
         {
+            
             string barcode = pscanData;
             // this.Invoke((MethodInvoker)delegate { rb_mstest.Text = barcode; });
             XmlDocument xmlDoc = new XmlDocument();
@@ -98,7 +99,8 @@ namespace warehouse
             }
             string needText = privacy.Decrypt(strData);
 
-            filestring.itemfile_string = needText;
+            //filestring.itemfile_string = needText;
+            filestring.tmp_string = needText;
 
         }
         public void getEQ_product()
@@ -129,5 +131,6 @@ namespace warehouse
             "</inArgs>";
             cCoreScannerClass.ExecCommand(opcode, ref inXML, out outXML, out status);
         }
+
     }
 }

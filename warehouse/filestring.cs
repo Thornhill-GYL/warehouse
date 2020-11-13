@@ -13,7 +13,10 @@ namespace warehouse
         public static string itemfile_string;
         public static string storefile_string;
         public static string personfile_string;
-        
+        public static string person_string;
+        public static string tmp_string;
+
+
     }
  
 

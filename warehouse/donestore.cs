@@ -43,12 +43,15 @@ namespace warehouse
         {
             //string filename = "F:/product_info.png";
             //string EQinfo = EQcoder.readEQ(filename);
+            //读取物品二维码程序！
             EQcoder product_read = new EQcoder();
-            
+            filestring.tmp_string = null;
+            filestring.itemfile_string = null;
             string file_input = " ";
             while (filestring.itemfile_string == null)
             {
                 product_read.getEQ_product();
+                filestring.itemfile_string = filestring.tmp_string;
                
             }
             file_input = filestring.itemfile_string;
@@ -64,11 +67,25 @@ namespace warehouse
 
         private void btperson_Click(object sender, EventArgs e)
         {
-            string filename = "F:/person_info.png";
-            string personinfo = EQcoder.readEQ(filename);
-            string secrectname = getmsg("姓名:", personinfo);
-            securitycode privacy = new securitycode();
-            truename.Text = privacy.Decrypt(secrectname);
+            //string filename = "F:/person_info.png";
+            //string personinfo = EQcoder.readEQ(filename);
+            //string secrectname = getmsg("姓名:", personinfo);
+
+            //读取人员二维码程序！
+            EQcoder product_read = new EQcoder();
+            filestring.tmp_string = null;
+            filestring.person_string = null;
+            string person_input = " ";
+            while (filestring.person_string == null)
+            {
+                product_read.getEQ_product();
+                filestring.person_string = filestring.tmp_string;
+
+            }
+            person_input = filestring.person_string;
+            truename.Text = getmsg("姓名:", person_input);
+           //securitycode privacy = new securitycode();
+           // truename.Text = privacy.Decrypt(secrectname);
         }
         List<string> listCombobox = new List<string>();
         private void donestore_Load(object sender, EventArgs e)

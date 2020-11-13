@@ -71,6 +71,60 @@ namespace warehouse
         private void btgen_Click(object sender, EventArgs e)
         {
             //normal(tbmsg.Text);
+          
+
+            //读取打印机状态，0=待机中，2=卡纸，4 =缺纸
+            //TSCLIB.openport("TSC TTP-244 Pro");
+            TSCLIB.openportExt();
+            TSCLIB.printCode("1","1");
+            TSCLIB.closeportExt();
+            //rb_mstest.Text = "打印机状态=" + status.ToString();
+            //TSCLIB.nobackfeed();
+            //TSCLIB.clearbuffer();
+            //// 设置 打印的方向.
+            //TSCLIB.sendcommand("DIRECTION 1");
+            //// 纸回拉指定长度
+            ////TSCLIB_DLL.sendcommand("BACKFEED 60");
+
+            ////二维码
+            ////需要清除上一次的打印记忆
+            //TSCLIB.sendcommand("CLS");
+            ////語法：BAR x, y, width, height。画横线,
+            ////width線條寬度，單位 dot
+            ////200 DPI: 1 mm = 8 dots 
+            ////TSCLIB_DLL.sendcommand("BAR 50,0,500,2");
+
+            ////QRCODE x,y,ECC Level,cell width,mode,rotation,[justification,]model,]mask,]area] "content"
+            ////ECC level容错率，H=30%,Q=25%,M=15%
+            ////cell width 1~10，二维码大小，尺寸
+            ////画分隔线290，不画270
+
+            ////打印内容距离打印机出口值
+            //int startY = 200;
+            ////“测试ABC123”为要生成的二维码字符串
+            //string command = "QRCODE 180," + startY + ",H,6,A,0,M2,S7,\"测试ABC123\"";
+            //TSCLIB.sendcommand(command);
+
+            ////设置墨汁浓度  
+            ////TSCLIB_DLL.sendcommand("DENSITY 15");
+            //// TSCLIB_DLL.windowsfont(100, 50, 30, 0, 0, 0, "ARIAL", "收货区域：北京(BJ)北京(010)");
+            ////TSS24.BF2简体中文24*24 
+            ////TSCLIB_DLL.printerfont("100", "0", "FONT001", "0", "1", "1", "收货区域：北京(BJ)北京(010)");
+            //// TSCLIB_DLL.setup("79", "40", "4", "16", "40", "1", "0");
+
+            //int fontSize = 30;
+            ////离左侧边距
+            //int x = 20;
+            ////画分隔线290，不画270
+            //int y = startY + 170;
+            ////行高
+            //int addNum = 40;
+            //TSCLIB.windowsfont(x, y, fontSize, 0, 0, 0, "ARIAL", "收货区域：成都武侯区");
+
+            //TSCLIB.printlabel("1", "1");
+            //TSCLIB.closeport();
+
+
             string ch = "示例";
 
         }

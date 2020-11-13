@@ -20,7 +20,7 @@ namespace warehouse
         public static string getmsg(string item, string all)
         {
             string result = "";
-            char spec = Convert.ToChar(13);
+            char spec = Convert.ToChar(10);
             for (int i = 0; i < all.Length; i++)
             {
                 if (item[0] == all[i])
@@ -40,22 +40,41 @@ namespace warehouse
         {
             string data_source = "F:/库存.xlsx;";
             connectsql searchinfo = new connectsql();
-            string filename = "F:/product_info.png";
-            string EQinfo = EQcoder.readEQ(filename);
-            tbname.Text = getmsg(lbname.Text, EQinfo);
-            tbnumber.Text = getmsg(lbnumber.Text, EQinfo);
-            tbscale.Text = getmsg(lbscale.Text, EQinfo);
-            rbmsg.Text = getmsg(lbmsg.Text, EQinfo);
+           
+            //读取物品二维码程序！
+            EQcoder product_read = new EQcoder();
+            filestring.tmp_string = null;
+            filestring.itemfile_string = null;
+            string file_input = " ";
+            while (filestring.itemfile_string == null)
+            {
+                product_read.getEQ_product();
+                filestring.itemfile_string = filestring.tmp_string;
+
+            }
+            file_input = filestring.itemfile_string;
+            tbname.Text = getmsg(lbname.Text, file_input);
+            tbnumber.Text = getmsg(lbnumber.Text, file_input);
+            tbscale.Text = getmsg(lbscale.Text, file_input);
+            rbmsg.Text = getmsg(lbmsg.Text, file_input);
             tbloc.Text = searchinfo.getsearch(data_source, "inloc", tbname.Text);
         }
 
         private void readperson_Click(object sender, EventArgs e)
         {
-            string filename = "F:/person_info.png";
-            string personinfo = EQcoder.readEQ(filename);
-            string secrectname = getmsg("姓名:", personinfo);
-            securitycode privacy = new securitycode();
-            truename.Text = privacy.Decrypt(secrectname);
+            //读取人员二维码程序！
+            EQcoder product_read = new EQcoder();
+            filestring.tmp_string = null;
+            filestring.person_string = null;
+            string person_input = " ";
+            while (filestring.person_string == null)
+            {
+                product_read.getEQ_product();
+                filestring.person_string = filestring.tmp_string;
+
+            }
+            person_input = filestring.person_string;
+            truename.Text = getmsg("姓名:", person_input);
         }
         List<string> listCombobox = new List<string>();
         private void outstore_Load(object sender, EventArgs e)

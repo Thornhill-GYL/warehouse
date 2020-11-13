@@ -62,7 +62,7 @@ namespace warehouse
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 filename = openFileDialog1.FileName;
-                tbtest.Text = filename;
+               
                 filestring.personfile_string = filename;
                 tbpersonloc.Text = filestring.personfile_string;
 
@@ -207,7 +207,7 @@ namespace warehouse
             //string personinfo_all = 
             securitycode privacy = new securitycode();
             //string longword = "一+二+三加加加很多多的多多读多动动多多读";
-            personinfo.name = privacy.Encrypt(name);
+            personinfo.name = name;
             personinfo.position = privacy.Encrypt(position);
             personinfo.apartment = privacy.Encrypt(apartment);
             personinfo.A_authority = privacy.Encrypt(A_authority);
@@ -226,8 +226,10 @@ namespace warehouse
 
             personEQ personEQFrom = new personEQ();
             personEQFrom.Show();
-        
-           
+            
+
+
+
 
 
         }
