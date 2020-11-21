@@ -106,15 +106,14 @@ namespace warehouse
              * 若开始未进行仓库位置更新，则使用默认的位置
              */
             string data_source = "";
-            string file_storeloc = " ";
-            file_storeloc = filestring.storefile_string + ";";
-            if (file_storeloc == ";")
+       
+            if (filestring.storefile_string == null)
             {
-                MessageBox.Show("仓库位置信息未更新，使用默认信息");
+
                 data_source = "F:/competition/smart car/other/C#出入库管理软件/仓库位置.xlsx;";
             }
             else
-                data_source = file_storeloc;
+                data_source = filestring.storefile_string + ";";
 
 
             testtb.Text = data_source;//显示现在读取存储位置的仓库信息

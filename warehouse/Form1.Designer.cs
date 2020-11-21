@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buildQR = new System.Windows.Forms.Button();
             this.megbt = new System.Windows.Forms.Button();
             this.sysbt = new System.Windows.Forms.Button();
             this.storebt = new System.Windows.Forms.Button();
@@ -36,21 +35,11 @@
             this.btsearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // buildQR
-            // 
-            this.buildQR.Location = new System.Drawing.Point(123, 173);
-            this.buildQR.Name = "buildQR";
-            this.buildQR.Size = new System.Drawing.Size(160, 75);
-            this.buildQR.TabIndex = 0;
-            this.buildQR.Text = "test_EQ";
-            this.buildQR.UseVisualStyleBackColor = true;
-            this.buildQR.Click += new System.EventHandler(this.buildQR_Click);
-            // 
             // megbt
             // 
-            this.megbt.Location = new System.Drawing.Point(123, 106);
+            this.megbt.Location = new System.Drawing.Point(122, 125);
             this.megbt.Name = "megbt";
-            this.megbt.Size = new System.Drawing.Size(155, 61);
+            this.megbt.Size = new System.Drawing.Size(156, 67);
             this.megbt.TabIndex = 1;
             this.megbt.Text = "打印标签";
             this.megbt.UseVisualStyleBackColor = true;
@@ -68,9 +57,9 @@
             // 
             // storebt
             // 
-            this.storebt.Location = new System.Drawing.Point(127, 267);
+            this.storebt.Location = new System.Drawing.Point(122, 240);
             this.storebt.Name = "storebt";
-            this.storebt.Size = new System.Drawing.Size(156, 84);
+            this.storebt.Size = new System.Drawing.Size(156, 71);
             this.storebt.TabIndex = 3;
             this.storebt.Text = "入库操作";
             this.storebt.UseVisualStyleBackColor = true;
@@ -78,7 +67,7 @@
             // 
             // outbt
             // 
-            this.outbt.Location = new System.Drawing.Point(123, 378);
+            this.outbt.Location = new System.Drawing.Point(122, 357);
             this.outbt.Name = "outbt";
             this.outbt.Size = new System.Drawing.Size(156, 74);
             this.outbt.TabIndex = 4;
@@ -88,9 +77,9 @@
             // 
             // btsearch
             // 
-            this.btsearch.Location = new System.Drawing.Point(123, 488);
+            this.btsearch.Location = new System.Drawing.Point(120, 484);
             this.btsearch.Name = "btsearch";
-            this.btsearch.Size = new System.Drawing.Size(152, 56);
+            this.btsearch.Size = new System.Drawing.Size(158, 67);
             this.btsearch.TabIndex = 5;
             this.btsearch.Text = "库存查询";
             this.btsearch.UseVisualStyleBackColor = true;
@@ -106,7 +95,6 @@
             this.Controls.Add(this.storebt);
             this.Controls.Add(this.sysbt);
             this.Controls.Add(this.megbt);
-            this.Controls.Add(this.buildQR);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -114,8 +102,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buildQR;
         private System.Windows.Forms.Button megbt;
         private System.Windows.Forms.Button sysbt;
         private System.Windows.Forms.Button storebt;

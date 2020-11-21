@@ -42,7 +42,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.numberlb = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.surplus = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tbstandard = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -84,6 +83,11 @@
             // nporder
             // 
             this.nporder.Location = new System.Drawing.Point(416, 20);
+            this.nporder.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
             this.nporder.Name = "nporder";
             this.nporder.Size = new System.Drawing.Size(120, 25);
             this.nporder.TabIndex = 4;
@@ -175,20 +179,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(439, 71);
+            this.label6.Location = new System.Drawing.Point(476, 71);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(97, 15);
             this.label6.TabIndex = 14;
             this.label6.Text = "剩余库存量：";
-            // 
-            // surplus
-            // 
-            this.surplus.AutoSize = true;
-            this.surplus.Location = new System.Drawing.Point(609, 71);
-            this.surplus.Name = "surplus";
-            this.surplus.Size = new System.Drawing.Size(55, 15);
-            this.surplus.TabIndex = 15;
-            this.surplus.Text = "label7";
             // 
             // label7
             // 
@@ -243,7 +238,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbstandard);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.surplus);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.numberlb);
             this.Controls.Add(this.label5);
@@ -284,7 +278,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label numberlb;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label surplus;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbstandard;
         private System.Windows.Forms.Label label8;

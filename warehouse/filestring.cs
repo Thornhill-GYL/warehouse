@@ -15,6 +15,7 @@ namespace warehouse
         public static string personfile_string;
         public static string person_string;
         public static string tmp_string;
+        public static string productfile_string;
 
 
     }
@@ -93,6 +94,8 @@ namespace warehouse
                 CommandText = "select 存储位置 from productSheet where 物品名称=@name";
             else if (purpose == "code")
                 CommandText = "select 密码 from [Sheet1$] where 用户名=@name";
+            else if(purpose == "number")
+                CommandText = "select 序号 from [Sheet1$] where 名称=@name";
             OleDbParameter parameters = new OleDbParameter("@name", cbtext);
             OleDbCommand cmd = new OleDbCommand(CommandText, conn);
             cmd.Parameters.Add(parameters);

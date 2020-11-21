@@ -32,8 +32,8 @@ namespace warehouse
             {
                 filename = openFileDialog1.FileName;
                
-                filestring.itemfile_string = filename;
-                tbproduct.Text = filestring.itemfile_string;
+                filestring.productfile_string = filename;
+                tbproduct.Text = filestring.productfile_string;
                 
             }
         }
