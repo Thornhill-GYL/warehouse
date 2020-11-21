@@ -21,6 +21,9 @@ namespace warehouse
         List<string> listCombobox_outname = new List<string>();
         List<string> listCombobox_putloc = new List<string>();
         List<string> listCombobox_outloc = new List<string>();
+        List<string> listCombobox_number = new List<string>();
+        List<string> listCombobox_product = new List<string>();
+
         private void searchstore_Load(object sender, EventArgs e)
         {
             
@@ -98,6 +101,32 @@ namespace warehouse
             this.cb_outloc.Items.AddRange(listCombobox_outloc.ToArray());
 
             this.cb_outloc.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //绑定序列号信息\
+            list.Clear();
+            list = dt.AsEnumerable().Select(c => c.Field<string>("序列号")).ToList();
+            foreach (string unitname in list)
+            {
+                if (unitname != null)
+                    listCombobox_number.Add(unitname);
+
+            }
+
+            this.cbnumber.Items.AddRange(listCombobox_number.ToArray());
+
+            this.cbnumber.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //绑定物品名称
+            list.Clear();
+            list = dt.AsEnumerable().Select(c => c.Field<string>("物品名称")).ToList();
+            foreach (string unitname in list)
+            {
+                if (unitname != null)
+                    listCombobox_product.Add(unitname);
+
+            }
+
+            this.cbproduct.Items.AddRange(listCombobox_product.ToArray());
+
+            this.cbproduct.AutoCompleteSource = AutoCompleteSource.ListItems;
 
 
 
@@ -182,13 +211,13 @@ namespace warehouse
             connectsql getinfo_done = new connectsql();//创建查询实例
             string data_source = "F:/库存.xlsx;";//该部分的检查在load部分已经完成
             DataTable dt = new DataTable();//实例化一个datatable
-            if(tb_num.Text!="")
+            if(cbnumber.Text!="")
             {
-                dt = getinfo_done.getwhole(data_source, "tbnum", tb_num.Text, "productSheet");
+                dt = getinfo_done.getwhole(data_source, "tbnum", cbnumber.Text, "productSheet");
             }
-            if(tb_product.Text!="")
+            if(cbproduct.Text!="")
             {
-                dt = getinfo_done.getwhole(data_source, "tbpro", tb_product.Text, "productSheet");
+                dt = getinfo_done.getwhole(data_source, "tbpro", cbproduct.Text, "productSheet");
             }
             if (cb_putnam.Text!="")
             {
@@ -209,14 +238,14 @@ namespace warehouse
             {
                 dt = getinfo_done.getwhole(data_source, "outloc", cb_outloc.Text, "productSheet");
             }
-            if (tb_num.Text != "")
+            if (cbnumber.Text != "")
             {
-                dt = getinfo_done.getwhole(data_source, "number", tb_num.Text, "productSheet");
+                dt = getinfo_done.getwhole(data_source, "number", cbnumber.Text, "productSheet");
 
             }
-            if (tb_product.Text != "")
+            if (cbproduct.Text != "")
             {
-                dt = getinfo_done.getwhole(data_source, "product", tb_product.Text, "productSheet");
+                dt = getinfo_done.getwhole(data_source, "product", cbproduct.Text, "productSheet");
 
             }
             if (rb_put.Checked)
@@ -231,7 +260,7 @@ namespace warehouse
                 dt = getinfo_done.getwhole(data_source, "outtime", dp_out.Text, "productSheet");
 
             }
-            if(tb_num.Text==""&& tb_product.Text==""&& cb_putnam.Text=="" && cb_putloc.Text==""
+            if(cbnumber.Text==""&& cbproduct.Text==""&& cb_putnam.Text=="" && cb_putloc.Text==""
                 &&cb_outloc.Text==""&&cb_outname.Text=="")
             {
                 if(rb_put.Checked==false&& rb_out.Checked==false)
@@ -241,6 +270,47 @@ namespace warehouse
             }
            
             dgshow_all.DataSource = dt;
+        }
+
+        private void cbnumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        //序列号的模糊查询
+        private void cbnumber_TextUpdate(object sender, EventArgs e)
+        {
+            /*
+        * 用于模糊搜索名称
+        */
+            var input = cbnumber.Text.ToUpper();
+            cbnumber.Items.Clear();
+            if (string.IsNullOrWhiteSpace(input)) cbnumber.Items.AddRange(listCombobox_number.ToArray());
+            else
+            {
+                var newList = listCombobox_number.ToArray().Where(x => x.IndexOf(input, StringComparison.CurrentCultureIgnoreCase) != -1).ToArray();
+                cbnumber.Items.AddRange(newList);
+            }
+            cbnumber.SelectionStart = cbnumber.Text.Length;
+            Cursor = Cursors.Default;
+            cbnumber.DroppedDown = true;
+        }
+        //用于名称的模糊搜索
+        private void cbproduct_TextUpdate(object sender, EventArgs e)
+        {
+            /*
+      * 用于模糊搜索名称
+      */
+            var input = cbproduct.Text.ToUpper();
+            cbproduct.Items.Clear();
+            if (string.IsNullOrWhiteSpace(input)) cbproduct.Items.AddRange(listCombobox_product.ToArray());
+            else
+            {
+                var newList = listCombobox_product.ToArray().Where(x => x.IndexOf(input, StringComparison.CurrentCultureIgnoreCase) != -1).ToArray();
+                cbproduct.Items.AddRange(newList);
+            }
+            cbproduct.SelectionStart = cbproduct.Text.Length;
+            Cursor = Cursors.Default;
+            cbproduct.DroppedDown = true;
         }
     }
 }

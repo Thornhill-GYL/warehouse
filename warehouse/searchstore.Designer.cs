@@ -36,8 +36,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.tb_num = new System.Windows.Forms.TextBox();
-            this.tb_product = new System.Windows.Forms.TextBox();
             this.cb_putnam = new System.Windows.Forms.ComboBox();
             this.cb_putloc = new System.Windows.Forms.ComboBox();
             this.cb_outname = new System.Windows.Forms.ComboBox();
@@ -49,6 +47,8 @@
             this.rb_put = new System.Windows.Forms.RadioButton();
             this.rb_out = new System.Windows.Forms.RadioButton();
             this.rbtime = new System.Windows.Forms.RadioButton();
+            this.cbnumber = new System.Windows.Forms.ComboBox();
+            this.cbproduct = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgshow_all)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,20 +131,6 @@
             this.label8.Size = new System.Drawing.Size(104, 19);
             this.label8.TabIndex = 7;
             this.label8.Text = "出库时间：";
-            // 
-            // tb_num
-            // 
-            this.tb_num.Location = new System.Drawing.Point(133, 38);
-            this.tb_num.Name = "tb_num";
-            this.tb_num.Size = new System.Drawing.Size(121, 25);
-            this.tb_num.TabIndex = 8;
-            // 
-            // tb_product
-            // 
-            this.tb_product.Location = new System.Drawing.Point(392, 37);
-            this.tb_product.Name = "tb_product";
-            this.tb_product.Size = new System.Drawing.Size(121, 25);
-            this.tb_product.TabIndex = 9;
             // 
             // cb_putnam
             // 
@@ -256,11 +242,32 @@
             this.rbtime.Text = "不考虑时间";
             this.rbtime.UseVisualStyleBackColor = true;
             // 
+            // cbnumber
+            // 
+            this.cbnumber.FormattingEnabled = true;
+            this.cbnumber.Location = new System.Drawing.Point(133, 33);
+            this.cbnumber.Name = "cbnumber";
+            this.cbnumber.Size = new System.Drawing.Size(121, 23);
+            this.cbnumber.TabIndex = 21;
+            this.cbnumber.SelectedIndexChanged += new System.EventHandler(this.cbnumber_SelectedIndexChanged);
+            this.cbnumber.TextUpdate += new System.EventHandler(this.cbnumber_TextUpdate);
+            // 
+            // cbproduct
+            // 
+            this.cbproduct.FormattingEnabled = true;
+            this.cbproduct.Location = new System.Drawing.Point(392, 33);
+            this.cbproduct.Name = "cbproduct";
+            this.cbproduct.Size = new System.Drawing.Size(121, 23);
+            this.cbproduct.TabIndex = 22;
+            this.cbproduct.TextUpdate += new System.EventHandler(this.cbproduct_TextUpdate);
+            // 
             // searchstore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 455);
+            this.Controls.Add(this.cbproduct);
+            this.Controls.Add(this.cbnumber);
             this.Controls.Add(this.rbtime);
             this.Controls.Add(this.rb_out);
             this.Controls.Add(this.rb_put);
@@ -272,8 +279,6 @@
             this.Controls.Add(this.cb_outname);
             this.Controls.Add(this.cb_putloc);
             this.Controls.Add(this.cb_putnam);
-            this.Controls.Add(this.tb_product);
-            this.Controls.Add(this.tb_num);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -301,8 +306,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tb_num;
-        private System.Windows.Forms.TextBox tb_product;
         private System.Windows.Forms.ComboBox cb_putnam;
         private System.Windows.Forms.ComboBox cb_putloc;
         private System.Windows.Forms.ComboBox cb_outname;
@@ -314,5 +317,7 @@
         private System.Windows.Forms.RadioButton rb_put;
         private System.Windows.Forms.RadioButton rb_out;
         private System.Windows.Forms.RadioButton rbtime;
+        private System.Windows.Forms.ComboBox cbnumber;
+        private System.Windows.Forms.ComboBox cbproduct;
     }
 }

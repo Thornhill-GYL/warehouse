@@ -153,7 +153,7 @@ namespace warehouse
              * conn:用于连接EXCEL表格
              * cmd：用于作为sql的查询条件
              * CommandText:用于sql语句查询
-             * @name:作为参数查询的参数入口
+             * @number:以序列号作为查询的目标
              */
             int exit_flag = 0;
             OleDbConnection conn = new OleDbConnection(data_input);

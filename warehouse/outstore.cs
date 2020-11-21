@@ -187,7 +187,7 @@ namespace warehouse
             OleDbConnection conn = new OleDbConnection(data_input);
             string CommandText = "null";
 
-            CommandText = "UPDATE productSheet SET [物品去向] = outloc,[出库人] = @person,[出库时间]=@time,[物品状态]=@status WHERE [物品名称] = @name";
+            CommandText = "UPDATE productSheet SET [物品去向] = outloc,[出库人] = @person,[出库时间]=@time,[物品状态]=@status WHERE [物品名称] = @name";//
              //CommandText = "INSERT INTO productSheet ([物品去向],[出库人],[出库时间],[物品状态]) VALUES(@outloc,@person,@time,@status)";
             OleDbCommand cmd = new OleDbCommand(CommandText,conn);
             int produce_exit = product_Exit(data_input, tbnumber.Text);
